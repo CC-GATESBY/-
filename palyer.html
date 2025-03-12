@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器 - 还愿</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .player-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        .album-cover {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .song-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .time-display {
+            margin-top: 10px;
+            font-size: 16px;
+            color: white;
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <img src="https://raw.githubusercontent.com/CC-GATESBY/-/main/cast1.jpg" class="album-cover" alt="音乐封面">
+        <div class="song-title">还愿</div>
+        <audio id="audio" controls>
+            <source src="https://raw.githubusercontent.com/CC-GATESBY/-/main/%E8%BF%98%E6%84%BF%20%E8%8D%89%E4%B8%9C%E6%B2%A1%E6%9C%89%E6%B4%BE%E5%AF%B9.wav" type="audio/wav">
+            您的浏览器不支持音频播放。
+        </audio>
+        <div class="time-display" id="time-display">0:00 / 0:00</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const audio = document.getElementById("audio");
+            const timeDisplay = document.getElementById("time-display");
+            
+            audio.addEventListener("timeupdate", function() {
+                let currentTime = formatTime(audio.currentTime);
+                let duration = formatTime(audio.duration);
+                timeDisplay.textContent = `${currentTime} / ${duration}`;
+            });
+            
+            function formatTime(seconds) {
+                if (isNaN(seconds) || seconds < 0) return "0:00";
+                let min = Math.floor(seconds / 60);
+                let sec = Math.floor(seconds % 60);
+                return `${min}:${sec < 10 ? "0" + sec : sec}`;
+            }
+        });
+    </script>
+</body>
+</html>
