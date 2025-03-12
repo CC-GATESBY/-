@@ -23,15 +23,15 @@
             height: 100%;
             background: url('https://raw.githubusercontent.com/CC-GATESBY/-/main/balck.jpg') no-repeat center center/cover;
             opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
+            animation: fadeIn 11s ease-in-out forwards;
         }
         .logo {
             position: absolute;
             opacity: 0;
-            width: 60%;
-            max-width: 800px;
-            animation: fadeInLogo 2s ease-in-out forwards;
-            animation-delay: 2s;
+            width: 80%;
+            max-width: 1000px;
+            animation: fadeInLogo 3s ease-in-out forwards;
+            animation-delay: 6s;
         }
         @keyframes fadeIn {
             0% { opacity: 0; }
@@ -45,16 +45,16 @@
 </head>
 <body>
     <div class="cover"></div>
-    <img class="logo" src="https://raw.githubusercontent.com/CC-GATESBY/-/main/yilu_logo_spaced.png" alt="一路三万天 Logo">
+    <img class="logo" src="https://raw.githubusercontent.com/CC-GATESBY/-/main/yilu_logo_transparent.png" alt="一路三万天 Logo">
     
     <script>
-        // 设置定时器，5秒后自动跳转到音乐页面
+        // 设置定时器，8秒后自动跳转到音乐页面
         setTimeout(() => {
             document.querySelector('.cover').style.opacity = '0';
             setTimeout(() => {
                 window.location.href = 'index.html'; // 这里填入你的音乐播放页面
             }, 1000);
-        }, 5000);
+        }, 11000);
     </script>
 </body>
 </html>
